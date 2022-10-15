@@ -21,10 +21,6 @@ title.classList.add('text-light');
 // Adicionar title ao Visor
 divContainer.append(title);
 
-// Adicionar na page os elementos criados
-document.body.append(divContainer);
-
-
 
 
 // Variavel para mostrar resultado
@@ -117,7 +113,7 @@ buttonDivider.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
   }
 
@@ -156,7 +152,7 @@ buttonMulti.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
   }
 
@@ -164,10 +160,10 @@ buttonMulti.onclick = function(){
     return;
   }
 
-  visor.value += "X";
+  visor.value += "*";
 };
 // adicionar texto dentro do botão
-buttonMulti.innerHTML = "X";
+buttonMulti.innerHTML = "*";
 // adicionar o botão na nossa 1° linha
 divPrimeiraLinha.append(buttonMulti);
 
@@ -208,7 +204,7 @@ button7.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -244,7 +240,7 @@ button8.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -280,7 +276,7 @@ button9.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -311,7 +307,7 @@ buttonMenos.classList.add('col-3');
 buttonMenos.onclick = function(){
   var visor = document.getElementById('visor');
 
-  if(resatarVisor){
+  if(resetarVisor){
     resetarVisor = false;
     visor.value = "";
 
@@ -356,7 +352,7 @@ button4.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -392,7 +388,7 @@ button5.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -428,7 +424,7 @@ button6.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -544,7 +540,7 @@ button2.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -578,7 +574,7 @@ button3.onclick = function(){
   var visor = document.getElementById('visor');
 
   if(resetarVisor){
-    resatarVisor = false;
+    resetarVisor = false;
     visor.value = "";
 
   }
@@ -675,28 +671,31 @@ buttonIgual.classList.add('border');
 buttonIgual.classList.add('border-light');
 // add ao destino desse elemento
 buttonIgual.classList.add('btn-calc');
-// tamanho
-buttonIgual.classList.add('col-9');
-buttonIgual.onclick = function() {
+// adicionar texto dentro do botão
+buttonIgual.innerHTML = "=";
+buttonIgual.onclick = function(){
   var visor = document.getElementById('visor');
 
-  try {
+  try{
     var result = eval(visor.value);
     if(isNaN(parseFloat(result)) || !isFinite(result)) {
-      visor.value = "Falha na expressão";
+        visor.value = "Falha na expressão";
     } else {
-      visor.value = result;
+        visor.value = result;
     }
-  } catch(e) {
-    visor.value = "Falha na espressão";
+  } catch(e){
+      visor.value = "Falha!";
   }
 
   resetarVisor = true;
-}
-// adicionar texto dentro do botão
-buttonIgual.innerHTML = "=";
+};
+// tamanho
+buttonIgual.classList.add('col-9');
 // adicionar o botão na nossa 1° linha
 divQuartaLinha.append(buttonIgual);
 
 // adicionar 4° linha a calculadora
 divContainer.appendChild(divQuartaLinha);
+
+// Adicionar na page os elementos criados (linhas, botões e visor)
+document.body.append(divContainer);
